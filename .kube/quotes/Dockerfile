@@ -110,4 +110,4 @@ ENTRYPOINT ["java", \
             "-Djavax.net.ssl.keyStorePassword=${CLIENT_KEY_STORE_PASSWORD}", \
             "-Djavax.net.ssl.trustStore=${CACERTS_PATH}", \
             "-Djavax.net.ssl.trustStorePassword=${CLIENT_TRUST_STORE_PASSWORD}", \
-            "-jar", "QoutesService.jar"]
+            "-jar", "QuotesService.jar"]
