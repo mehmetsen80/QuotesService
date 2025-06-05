@@ -1,0 +1,139 @@
+full_name,known_as,birth_year,death_year,nationality,description,category
+Socrates of Athens,The Gadfly,,-399,Greek,Ancient Greek philosopher known for the Socratic method,Philosophers
+Plato,Platon,,-347,Greek,Ancient Greek philosopher and student of Socrates,Philosophers
+Aristotle,The Stagirite,,-322,Greek,Ancient Greek philosopher and student of Plato,Philosophers
+Confucius,The Great Teacher,551,-479,Chinese,Ancient Chinese philosopher and religious figure known for Confucianism,Philosophers
+Lao Tzu,Old Master,,-531,Chinese,Ancient Chinese philosopher and writer of Tao Te Ching,Philosophers
+Friedrich Wilhelm Nietzsche,The Antichrist,1844,1900,German,German philosopher known for his critiques of traditional morality,Philosophers
+Immanuel Kant,The Sage of Königsberg,1724,1804,German,German philosopher known for his work on epistemology and ethics,Philosophers
+René Descartes,The Father of Modern Philosophy,1596,1650,French,French philosopher known for "Cogito, ergo sum",Philosophers
+Jean-Paul Charles Aymard Sartre,The Father of Existentialism,1905,1980,French,French existentialist philosopher and writer,Philosophers
+Albert Camus,The Absurdist,1913,1960,French,French philosopher and writer known for his work on absurdism,Philosophers
+John Locke,The Father of Liberalism,1632,1704,English,English philosopher known for his work on political philosophy,Philosophers
+David Hume,The Scottish Enlightenment,1711,1776,Scottish,Scottish philosopher known for empiricism and skepticism,Philosophers
+Karl Marx,The Father of Communism,1818,1883,German,German philosopher and economist known for Marxism and Das Kapital,Philosophers
+Arthur Schopenhauer,The Philosopher of Pessimism,1788,1860,German,German philosopher known for his work on will and representation,Philosophers
+Ludwig Wittgenstein,The Language Philosopher,1889,1951,Austrian,Austrian-British philosopher known for his work on language,Philosophers
+William Shakespeare,The Bard of Avon,1564,1616,English,English playwright and poet known as the Bard,Writers
+Leo Nikolayevich Tolstoy,The Great Bear,1828,1910,Russian,Russian writer known for War and Peace,Writers
+Fyodor Mikhailovich Dostoevsky,The Prophet of the Russian Soul,1821,1881,Russian,Russian writer known for Crime and Punishment,Writers
+Jane Austen,The First Lady of English Literature,1775,1817,English,English novelist known for Pride and Prejudice,Writers
+Charles John Huffam Dickens,The Inimitable,1812,1870,English,English writer known for A Tale of Two Cities,Writers
+Mark Twain,The Father of American Literature,1835,1910,American,American writer known for The Adventures of Tom Sawyer,Writers
+Oscar Wilde,The Master of Wit,1854,1900,Irish,Irish writer known for The Picture of Dorian Gray,Writers
+Virginia Woolf,The Modernist Pioneer,1882,1941,English,English writer known for Mrs. Dalloway,Writers
+Ernest Hemingway,The Iceberg Theory,1899,1961,American,American writer known for The Old Man and the Sea,Writers
+Gabriel García Márquez,The Magical Realist,1927,2014,Colombian,Colombian writer known for One Hundred Years of Solitude,Writers
+Mahatma Gandhi,The Father of the Nation,1869,1948,Indian,Indian leader known for nonviolent resistance,Political Leaders
+Nelson Mandela,The Father of South Africa,1918,2013,South African,South African leader known for ending apartheid,Political Leaders
+Winston Churchill,The British Bulldog,1874,1965,British,British Prime Minister during World War II,Political Leaders
+Abraham Lincoln,The Great Emancipator,1809,1865,American,American President known for ending slavery,Political Leaders
+Martin Luther King Jr.,The Dream,1929,1968,American,American civil rights leader known for nonviolent activism,Political Leaders
+Franklin D. Roosevelt,The New Deal President,1882,1945,American,American President during the Great Depression,Political Leaders
+John F. Kennedy,The Camelot President,1917,1963,American,American President known for the space race,Political Leaders
+Margaret Thatcher,The Iron Lady,1925,2013,British,British Prime Minister known for conservative policies,Political Leaders
+Napoleon Bonaparte,The Little Corporal,1769,1821,French,French military leader and emperor,Political Leaders
+Julius Caesar,The Dictator,100,-44,Roman,Roman military leader and statesman,Political Leaders
+Buddha,The Enlightened One,563,-483,Indian,Founder of Buddhism,Religious Figures
+Moses,The Lawgiver,,-1391,Jewish,Prophet and leader in Judaism,Religious Figures
+Martin Luther,The Protestant Reformer,1483,1546,German,German priest who initiated the Protestant Reformation,Religious Figures
+Pope John Paul II,The People's Pope,1920,2005,Polish,Polish pope known for his global influence,Religious Figures
+Dalai Lama,The Spiritual Leader,1935,,Tibetan,Tibetan Buddhist spiritual leader,Religious Figures
+Mother Teresa,The Saint of Calcutta,1910,1997,Albanian,Albanian-Indian nun known for charity work,Religious Figures
+Guru Nanak,The First Sikh Guru,1469,1539,Indian,Founder of Sikhism,Religious Figures
+Sun Tzu,The Art of War Master,544,-496,Chinese,Chinese military strategist,Military Leaders
+Joan of Arc,The Maid of Orléans,1412,1431,French,French military leader and saint,Military Leaders
+George Washington,The First President,1732,1799,American,American military leader and first president,Military Leaders
+Adam Smith,The Father of Economics,1723,1790,Scottish,Scottish economist known for The Wealth of Nations,Economists
+John Maynard Keynes,The Keynesian Economist,1883,1946,British,British economist known for Keynesian economics,Economists
+Milton Friedman,The Monetarist,1912,2006,American,American economist known for monetarism,Economists
+Friedrich Hayek,The Austrian Economist,1899,1992,Austrian,Austrian economist known for The Road to Serfdom,Economists
+Joseph Schumpeter,The Creative Destruction Economist,1883,1950,Austrian,Austrian economist known for innovation theory,Economists
+David Ricardo,The Classical Economist,1772,1823,British,British economist known for comparative advantage,Economists
+Thomas Malthus,The Population Economist,1766,1834,British,British economist known for population theory,Economists
+Alfred Marshall,The Neoclassical Economist,1842,1924,British,British economist known for Principles of Economics,Economists
+Paul Samuelson,The Modern Economist,1915,2009,American,American economist known for mathematical economics,Economists
+Sigmund Freud,The Father of Psychoanalysis,1856,1939,Austrian,Austrian neurologist and founder of psychoanalysis,Psychologists
+Carl Jung,The Analytical Psychologist,1875,1961,Swiss,Swiss psychiatrist known for analytical psychology,Medical Pioneers
+B.F. Skinner,The Behaviorist,1904,1990,American,American psychologist known for operant conditioning,Psychologists
+Ivan Pavlov,The Classical Conditioning Pioneer,1849,1936,Russian,Russian psychologist known for classical conditioning,Psychologists
+Jean Piaget,The Child Development Theorist,1896,1980,Swiss,Swiss psychologist known for cognitive development,Psychologists
+Erik Erikson,The Psychosocial Theorist,1902,1994,German,German-American psychologist known for psychosocial development,Psychologists
+Abraham Maslow,The Humanistic Psychologist,1908,1970,American,American psychologist known for hierarchy of needs,Psychologists
+Albert Bandura,The Social Learning Theorist,1925,2021,Canadian,Canadian psychologist known for social learning theory,Psychologists
+Lev Vygotsky,The Social Development Theorist,1896,1934,Soviet,Soviet psychologist known for social development theory,Psychologists
+William James,The Father of American Psychology,1842,1910,American,American psychologist known for pragmatism,Psychologists
+Noam Chomsky,The Language Theorist,1928,,American,American linguist and philosopher,Linguists
+Ferdinand de Saussure,The Structural Linguist,1857,1913,Swiss,Swiss linguist known for structuralism,Linguists
+Roman Jakobson,The Communication Theorist,1896,1982,Russian,Russian linguist known for communication theory,Linguists
+Edward Sapir,The Anthropological Linguist,1884,1939,American,American linguist and anthropologist,Linguists
+Benjamin Lee Whorf,The Linguistic Relativist,1897,1941,American,American linguist known for relativity,Linguists
+William Labov,The Sociolinguist,1927,,American,American linguist known for sociolinguistics,Linguists
+George Lakoff,The Cognitive Linguist,1941,,American,American linguist known for cognitive linguistics,Linguists
+Steven Pinker,The Language Instinct,1954,,Canadian,Canadian-American linguist and psychologist,Linguists
+Deborah Tannen,The Gender Linguist,1945,,American,American linguist known for gender studies,Linguists
+John McWhorter,The Language Evolutionist,1965,,American,American linguist known for language evolution,Linguists
+Paulo Coelho,The Alchemist,1947,,Brazilian,Brazilian writer known for The Alchemist,Writers
+Jorge Luis Borges,The Magical Realist,1899,1986,Argentine,Argentine writer known for magical realism,Writers
+Milan Kundera,The Existential Novelist,1929,,Czech,Czech-French writer known for The Unbearable Lightness of Being,Writers
+Haruki Murakami,The Japanese Magical Realist,1949,,Japanese,Japanese writer known for magical realism,Writers
+Chinua Achebe,The African Voice,1930,2013,Nigerian,Nigerian writer known for Things Fall Apart,Writers
+Naguib Mahfouz,The Egyptian Nobel Laureate,1911,2006,Egyptian,Egyptian writer known for The Cairo Trilogy,Writers
+Orhan Pamuk,The Turkish Nobel Laureate,1952,,Turkish,Turkish writer known for My Name is Red,Writers
+Isabel Allende,The Chilean Storyteller,1942,,Chilean,Chilean writer known for The House of the Spirits,Writers
+Salman Rushdie,The Midnight's Children,1947,,British-Indian,British-Indian writer known for magical realism,Writers
+Jhumpa Lahiri,The Interpreter of Maladies,1967,,American,American writer known for The Namesake,Writers
+Arundhati Roy,The God of Small Things,1961,,Indian,Indian writer known for The God of Small Things,Writers
+Yukio Mishima,The Japanese Traditionalist,1925,1970,Japanese,Japanese writer known for The Sea of Fertility,Writers
+Kazuo Ishiguro,The Remains of the Day,1954,,British,Japanese-British writer known for The Remains of the Day,Writers
+Mario Vargas Llosa,The Peruvian Nobel Laureate,1936,,Peruvian,Peruvian writer known for The War of the End of the World,Writers
+Mevlana Celaleddin Rumi,The Sufi Poet,1207,1273,Persian,Persian poet and Sufi mystic known for spiritual poetry and the Whirling Dervishes,Religious Figures
+Yunus Emre,The Folk Poet,1240,1321,Turkish,Turkish poet and Sufi mystic known for his spiritual poetry and wisdom,Writers
+Nazım Hikmet,The Revolutionary Poet,1902,1963,Turkish,Turkish poet known for his political and romantic poetry,Writers
+Yaşar Kemal,The Anatolian Voice,1923,2015,Turkish,Turkish writer known for his novels and social commentary,Writers
+Halide Edib Adıvar,The Independence Writer,1884,1964,Turkish,Turkish writer and independence activist known for her speeches,Writers
+Pir Sultan Abdal,The Folk Poet,1480,1550,Turkish,Turkish folk poet and mystic known for his spiritual verses,Writers
+Karacaoğlan,The Folk Poet,1606,1680,Turkish,Turkish folk poet known for his love poems and wisdom,Writers
+Aşık Veysel,The Blind Poet,1894,1973,Turkish,Turkish folk poet known for his philosophical verses,Writers
+Cahit Sıtkı Tarancı,The Modern Poet,1910,1956,Turkish,Turkish poet known for his existential verses,Writers
+Mustafa Kemal Atatürk,The Father of Turks,1881,1938,Turkish,Turkish statesman and revolutionary known for his leadership and memorable sayings,Political Leaders
+Marcus Aurelius,The Philosopher King,121,180,Roman,Roman emperor and Stoic philosopher known for his Meditations,Philosophers
+Epictetus,The Stoic Slave,50,135,Greek,Greek Stoic philosopher known for his teachings on self-control,Philosophers
+Seneca,The Roman Stoic,4,65,Roman,Roman Stoic philosopher known for his letters and essays,Philosophers
+Marcus Tullius Cicero,The Roman Orator,106,-43,Roman,Roman statesman and philosopher known for his speeches and writings,Philosophers
+Voltaire,The Enlightenment Wit,1694,1778,French,French Enlightenment writer known for his wit and criticism,Philosophers
+Bertrand Russell,The Logical Philosopher,1872,1970,British,British philosopher known for his logical analysis and social commentary,Philosophers
+George Bernard Shaw,The Witty Playwright,1856,1950,Irish,Irish playwright known for his wit and social commentary,Writers
+Khalil Gibran,The Prophet,1883,1931,Lebanese,Lebanese-American writer known for The Prophet,Writers
+Rabindranath Tagore,The Bengali Poet,1861,1941,Indian,Indian poet and philosopher known for his spiritual poetry,Writers
+Victor Hugo,The French Romantic,1802,1885,French,French writer known for Les Misérables and memorable quotes,Writers
+Antoine de Saint-Exupéry,The Little Prince,1900,1944,French,French writer known for The Little Prince,Writers
+Franz Kafka,The Modernist Writer,1883,1924,Czech,Czech writer known for his existential themes,Writers
+Albert Einstein,The Relativity Genius,1879,1955,German,German physicist known for his scientific and philosophical quotes,Scientists
+Marie Curie,The Radioactivity Pioneer,1867,1934,Polish,Polish physicist known for her scientific and inspirational quotes,Scientists
+Thomas Edison,The Inventor,1847,1931,American,American inventor known for his quotes on innovation and perseverance,Inventors
+Steve Jobs,The Apple Visionary,1955,2011,American,American entrepreneur known for his inspirational speeches and quotes,Entrepreneurs
+Walt Disney,The Dream Maker,1901,1966,American,American entrepreneur known for his quotes on imagination and dreams,Entrepreneurs
+Maya Angelou,The Phenomenal Woman,1928,2014,American,American poet and civil rights activist known for her inspirational quotes,Writers
+Cicero,The Roman Orator,106,-43,Roman,Roman statesman known for his speeches and political quotes,Political Leaders
+Pericles,The Athenian Leader,495,-429,Greek,Ancient Greek statesman known for his funeral oration,Political Leaders
+Demosthenes,The Athenian Orator,384,-322,Greek,Ancient Greek orator known for his political speeches,Political Leaders
+Cato the Elder,The Roman Censor,234,-149,Roman,Roman statesman known for his political maxims,Political Leaders
+Forrest Gump,The Simple Man,1950,,American,Fictional character known for his innocent wisdom and memorable quotes,Characters
+Atticus Finch,The Moral Lawyer,1920,,American,Fictional character known for his wisdom and moral guidance in To Kill a Mockingbird,Characters
+Don Vito Corleone,The Godfather,1891,1955,Italian-American,Fictional character known for his powerful quotes about family and power,Characters
+Yoda,The Jedi Master,896,4,Galactic,Fictional character known for his wisdom and unique way of speaking,Characters
+Gandalf,The Grey Wizard,1000,,Middle-earth,Fictional character known for his wisdom and guidance in The Lord of the Rings,Characters
+Dumbledore,The Headmaster,1881,1997,British,Fictional character known for his wisdom and guidance in Harry Potter,Characters
+Tyler Durden,The Revolutionary,1960,,American,Fictional character known for his philosophical quotes in Fight Club,Characters
+The Joker,The Clown Prince of Crime,1920,,American,Fictional character known for his dark philosophical quotes,Characters
+Darth Vader,The Dark Lord,41,4,Galactic,Fictional character known for his powerful quotes about the dark side,Characters
+Han Solo,The Smuggler,29,34,Galactic,Fictional character known for his witty and memorable quotes,Characters
+Esther Perel,The Relationship Expert,1958,,Belgian,Belgian psychotherapist known for her insights on modern relationships,Relationships
+John Gottman,The Love Lab Scientist,1942,,American,American psychologist known for his research on relationship stability,Relationships
+Brené Brown,The Vulnerability Researcher,1965,,American,American researcher known for her work on vulnerability and connection,Relationships
+Gary Chapman,The Love Languages Expert,1938,,American,American author known for The 5 Love Languages,Relationships
+Sue Johnson,The Attachment Expert,1947,,Canadian,Canadian psychologist known for Emotionally Focused Therapy,Relationships
+Harville Hendrix,The Relationship Therapist,1935,,American,American therapist known for Imago Relationship Therapy,Relationships
+Helen Fisher,The Love Anthropologist,1945,,American,American anthropologist known for her research on love and relationships,Relationships
+Alain de Botton,The Modern Philosopher,1969,,Swiss,Swiss-British philosopher known for his insights on modern love,Relationships
