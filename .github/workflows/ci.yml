@@ -90,7 +90,9 @@ jobs:
           ssh $EC2_USERNAME@$EC2_HOST "sudo mkdir -p /var/www/quotes-service && sudo chown -R $EC2_USERNAME:$EC2_USERNAME /var/www/quotes-service && sudo chmod -R 755 /var/www/quotes-service"
           
           # Rsync main directories
-          rsync -avz --delete artifacts/quotes-service-source/ $EC2_USERNAME@$EC2_HOST:/var/www/quotes-service
+          rsync -avz --delete \
+            --exclude 'quotes.db' \
+            artifacts/quotes-service-source/ $EC2_USERNAME@$EC2_HOST:/var/www/quotes-service
           
           # Use rsync for sensitive files
           rsync -avz artifacts/docker-compose/docker-compose-ec2.yml $EC2_USERNAME@$EC2_HOST:/var/www/quotes-service/docker-compose.yml
@@ -118,7 +120,7 @@ jobs:
             echo 'Pruning unused images/containers/volumes/networks'
             sudo docker system prune -a -f
           
-          # Check disk usage
+            # Check disk usage
             echo 'Checking disk usage'
             df -hT
 
