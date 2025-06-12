@@ -26,8 +26,13 @@ public class DataLoaderService {
     private final CategoryRepository categoryRepository;
 
     @Transactional
-    public void loadPeopleFromCsv() {
+    public void loadPeopleFromCsv(boolean force) {
         try {
+            if (force) {
+                log.info("Force reload requested. Deleting all existing people data.");
+                personRepository.deleteAll();
+            }
+
             // Get existing people's full names
             Set<String> existingFullNames = personRepository.findAll().stream()
                     .map(Person::getFullName)
@@ -45,8 +50,8 @@ public class DataLoaderService {
                 while ((line = reader.readNext()) != null) {
                     String fullName = line[0];
                     
-                    // Skip if the name already exists
-                    if (existingFullNames.contains(fullName)) {
+                    // Skip if the name already exists and we're not forcing reload
+                    if (!force && existingFullNames.contains(fullName)) {
                         duplicateNames.add(fullName);
                         continue;
                     }
@@ -58,6 +63,7 @@ public class DataLoaderService {
                     person.setDeathYear(parseYear(line[3]));
                     person.setNationality(line[4]);
                     person.setDescription(line[5]);
+                    person.setCategory(line[6]);
                     newPeople.add(person);
                     
                     // Add to existing names to prevent duplicates within the CSV
