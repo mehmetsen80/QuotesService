@@ -9,9 +9,11 @@ import org.lite.quotes.entity.Category;
 import org.lite.quotes.repository.PersonRepository;
 import org.lite.quotes.repository.CategoryRepository;
 import org.springframework.core.io.ClassPathResource;
+import org.springframework.dao.DataIntegrityViolationException;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
+import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStreamReader;
 import java.util.*;
@@ -25,62 +27,91 @@ public class DataLoaderService {
     private final PersonRepository personRepository;
     private final CategoryRepository categoryRepository;
 
-    @Transactional
-    public void loadPeopleFromCsv(boolean force) {
-        try {
-            if (force) {
-                log.info("Force reload requested. Deleting all existing people data.");
-                personRepository.deleteAll();
-            }
-
-            // Get existing people's full names
-            Set<String> existingFullNames = personRepository.findAll().stream()
-                    .map(Person::getFullName)
-                    .collect(Collectors.toSet());
-
-            ClassPathResource resource = new ClassPathResource("data/people.csv");
-            try (CSVReader reader = new CSVReader(new InputStreamReader(resource.getInputStream()))) {
-                // Skip header
-                reader.readNext();
-                
-                String[] line;
-                List<Person> newPeople = new ArrayList<>();
-                Set<String> duplicateNames = new HashSet<>();
-                
-                while ((line = reader.readNext()) != null) {
-                    String fullName = line[0];
-                    
-                    // Skip if the name already exists and we're not forcing reload
-                    if (!force && existingFullNames.contains(fullName)) {
-                        duplicateNames.add(fullName);
-                        continue;
-                    }
-                    
-                    Person person = new Person();
-                    person.setFullName(fullName);
-                    person.setKnownAs(line[1]);
-                    person.setBirthYear(parseYear(line[2]));
-                    person.setDeathYear(parseYear(line[3]));
-                    person.setNationality(line[4]);
-                    person.setDescription(line[5]);
-                    person.setCategory(line[6]);
-                    newPeople.add(person);
-                    
-                    // Add to existing names to prevent duplicates within the CSV
-                    existingFullNames.add(fullName);
-                }
-                
-                if (!duplicateNames.isEmpty()) {
-                    log.warn("Skipped {} duplicate names: {}", duplicateNames.size(), duplicateNames);
-                }
-                
-                personRepository.saveAll(newPeople);
-                log.info("Successfully loaded {} new people from CSV", newPeople.size());
-            }
-        } catch (IOException | CsvValidationException e) {
-            log.error("Error loading people from CSV", e);
-            throw new RuntimeException("Failed to load people from CSV", e);
+    public int loadPeopleFromCsv(boolean force) {
+        log.info("Starting to load people data from CSV. Force reload: {}", force);
+        
+        if (force) {
+            log.info("Force reload requested. Deleting all existing people data.");
+            deleteAllPeople();
         }
+
+        Set<String> existingNames = new HashSet<>();
+        if (!force) {
+            existingNames.addAll(personRepository.findAllFullNames());
+            log.info("Found {} existing people in database", existingNames.size());
+        }
+
+        int loadedCount = 0;
+        int skippedCount = 0;
+        int errorCount = 0;
+        Set<String> errorNames = new HashSet<>();
+
+        try (BufferedReader reader = new BufferedReader(
+                new InputStreamReader(getClass().getResourceAsStream("/data/people.csv")))) {
+            
+            // Skip header
+            String line = reader.readLine();
+            if (line == null) {
+                log.warn("CSV file is empty");
+                return 0;
+            }
+
+            while ((line = reader.readLine()) != null) {
+                String[] parts = line.split(",");
+                if (parts.length < 7) {
+                    log.warn("Skipping invalid line: {}", line);
+                    continue;
+                }
+
+                String fullName = parts[0].trim();
+                if (!force && existingNames.contains(fullName)) {
+                    log.debug("Skipping duplicate name: {}", fullName);
+                    skippedCount++;
+                    continue;
+                }
+
+                try {
+                    savePerson(fullName, parts);
+                    loadedCount++;
+                    log.debug("Loaded person: {}", fullName);
+                } catch (DataIntegrityViolationException e) {
+                    errorCount++;
+                    errorNames.add(fullName);
+                    log.warn("Failed to load person {} due to unique constraint violation", fullName);
+                } catch (Exception e) {
+                    errorCount++;
+                    errorNames.add(fullName);
+                    log.error("Failed to load person {}: {}", fullName, e.getMessage());
+                }
+            }
+        } catch (Exception e) {
+            log.error("Error loading people data", e);
+            throw new RuntimeException("Failed to load people data: " + e.getMessage(), e);
+        }
+
+        log.info("Data loading completed. Loaded: {}, Skipped: {}, Errors: {}", loadedCount, skippedCount, errorCount);
+        if (!errorNames.isEmpty()) {
+            log.warn("Failed to load {} people due to errors: {}", errorCount, errorNames);
+        }
+        return loadedCount;
+    }
+
+    @Transactional
+    protected void deleteAllPeople() {
+        personRepository.deleteAll();
+    }
+
+    @Transactional
+    protected void savePerson(String fullName, String[] parts) {
+        Person person = new Person();
+        person.setFullName(fullName);
+        person.setKnownAs(parts[1].trim());
+        person.setBirthYear(parseYear(parts[2].trim()));
+        person.setDeathYear(parseYear(parts[3].trim()));
+        person.setNationality(parts[4].trim());
+        person.setDescription(parts[5].trim());
+        person.setCategory(parts[6].trim());
+        personRepository.save(person);
     }
 
     @Transactional
@@ -132,12 +163,13 @@ public class DataLoaderService {
     }
 
     private Integer parseYear(String yearStr) {
-        if (yearStr == null || yearStr.trim().isEmpty()) {
+        if (yearStr == null || yearStr.trim().isEmpty() || yearStr.equals("null")) {
             return null;
         }
         try {
-            return Integer.parseInt(yearStr);
+            return Integer.parseInt(yearStr.trim());
         } catch (NumberFormatException e) {
+            log.warn("Invalid year format: {}", yearStr);
             return null;
         }
     }
