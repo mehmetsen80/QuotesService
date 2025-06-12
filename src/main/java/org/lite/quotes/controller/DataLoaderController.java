@@ -1,14 +1,13 @@
 package org.lite.quotes.controller;
 
 import io.swagger.v3.oas.annotations.Operation;
+import io.swagger.v3.oas.annotations.Parameter;
 import io.swagger.v3.oas.annotations.tags.Tag;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 import org.lite.quotes.service.DataLoaderService;
 import org.springframework.http.ResponseEntity;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 @RestController
 @RequestMapping("/api/data")
@@ -19,12 +18,14 @@ public class DataLoaderController {
 
     private final DataLoaderService dataLoaderService;
 
-    @Operation(summary = "Load people data from CSV", description = "Loads initial people data from the CSV file")
+    @Operation(summary = "Load people data from CSV", description = "Loads initial people data from the CSV file. Use force=true to delete existing data and reload.")
     @GetMapping("/load/people")
-    public ResponseEntity<String> loadPeopleData() {
+    public ResponseEntity<String> loadPeopleData(
+            @Parameter(description = "Force reload by deleting existing data", example = "false")
+            @RequestParam(defaultValue = "false") boolean force) {
         try {
-            dataLoaderService.loadPeopleFromCsv();
-            return ResponseEntity.ok("Successfully loaded people data");
+            dataLoaderService.loadPeopleFromCsv(force);
+            return ResponseEntity.ok("Successfully loaded people data" + (force ? " (forced reload)" : ""));
         } catch (Exception e) {
             log.error("Error loading people data", e);
             return ResponseEntity.internalServerError().body("Failed to load people data: " + e.getMessage());
