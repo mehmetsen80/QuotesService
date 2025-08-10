@@ -1,3 +1,4 @@
+name: linqra
 networks:
   linqra-network:
     external: true
