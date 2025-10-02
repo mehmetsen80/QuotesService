@@ -65,6 +65,7 @@ eureka:
     register-with-eureka: true
     fetch-registry: true
   instance:
+    appname: quotes-service
     hostname: ${EUREKA_INSTANCE_URL:localhost}
     instance-id: ${spring.application.name}:${instanceId:${random.value}}
     non-secure-port-enabled: false   # Disable non-secure HTTP port

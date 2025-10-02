@@ -24,7 +24,7 @@ public class DataLoaderController {
     public ResponseEntity<String> loadPeopleData(
             @Parameter(description = "Force reload by deleting existing data", example = "false")
             @RequestParam(defaultValue = "false") boolean force) {
-        log.info("Received request to load people data. Force reload: {}", force);
+        log.info("Received request to load people data. Force reload:  {}", force);
         try {
             int loadedCount = dataLoaderService.loadPeopleFromCsv(force);
             String message = String.format("Successfully loaded %d people from data" + (force ? " (forced reload)" : ""), loadedCount);
