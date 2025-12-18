@@ -8,6 +8,7 @@ services:
     build:
       context: .
       dockerfile: .kube/quotes/Dockerfile
+    container_name: quotes-service
     environment:
       SPRING_PROFILES_ACTIVE: ec2
       CLIENT_TRUST_STORE: /app/client-truststore.jks
