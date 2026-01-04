@@ -1,4 +1,3 @@
-name: linqra
 networks:
   linqra-network:
     external: true
@@ -7,7 +6,7 @@ services:
   quotes-service:
     build:
       context: .
-      dockerfile: .kube/quotes/Dockerfile
+      dockerfile: ./.kube/quotes/Dockerfile.polaris
     container_name: quotes-service
     environment:
       SPRING_PROFILES_ACTIVE: ec2
@@ -16,13 +15,13 @@ services:
       CLIENT_KEY_STORE: /app/client-keystore.jks
       CLIENT_KEY_STORE_PASSWORD: 123456
       CLIENT_ALIAS_NAME: quotes-service-container
+      EUREKA_USERNAME: ${EUREKA_USERNAME}
+      EUREKA_PASSWORD: ${EUREKA_PASSWORD}
       EUREKA_CLIENT_URL: discovery-service
       EUREKA_INSTANCE_URL: quotes-service
-      KEYCLOAK_GATEWAY_URL: keycloak-service
-      KEYCLOAK_GATEWAY_PORT: 8080/keycloak
       GATEWAY_SERVICE_URL: api-gateway-service
-    deploy:
-      replicas: 1
+    ports:
+      - "8083:8083"
     networks:
       - linqra-network
     volumes:

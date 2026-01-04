@@ -1,10 +1,7 @@
 name: Linqra Quotes Service CI
 
 on:
-  push:
-    branches: [ "master" ]
-  pull_request:
-    branches: [ "master" ]
+  workflow_dispatch:
 
 permissions:
   contents: write
@@ -130,7 +127,9 @@ jobs:
           
             # Build and start containers
             echo 'Building and starting containers'
-            sudo docker compose -f docker-compose.yml -p linqra up -d --build quotes-service
+            export EUREKA_USERNAME='${{ secrets.EUREKA_USERNAME }}'
+            export EUREKA_PASSWORD='${{ secrets.EUREKA_PASSWORD }}'
+            sudo -E docker compose -f docker-compose.yml -p linqra up -d --build quotes-service
           
             # Check if containers are running
             echo 'Checking if containers are running'
