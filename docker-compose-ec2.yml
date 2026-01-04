@@ -17,7 +17,6 @@ services:
       CLIENT_ALIAS_NAME: quotes-service-container
       EUREKA_USERNAME: ${EUREKA_USERNAME}
       EUREKA_PASSWORD: ${EUREKA_PASSWORD}
-      EUREKA_CLIENT_URL: discovery-service
       EUREKA_INSTANCE_URL: quotes-service
       GATEWAY_SERVICE_URL: api-gateway-service
     ports:
