@@ -17,7 +17,7 @@ services:
       CLIENT_ALIAS_NAME: quotes-service-container
       EUREKA_USERNAME: ${EUREKA_USERNAME}
       EUREKA_PASSWORD: ${EUREKA_PASSWORD}
-      EUREKA_INSTANCE_URL: quotes-service
+      EUREKA_INSTANCE_URL: 172.31.44.2
       GATEWAY_SERVICE_URL: api-gateway-service
     ports:
       - "8083:8083"
