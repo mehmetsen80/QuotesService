@@ -16,50 +16,54 @@ import org.springframework.security.oauth2.jwt.JwtTimestampValidator;
 import org.springframework.security.oauth2.jwt.NimbusJwtDecoder;
 import org.springframework.security.web.SecurityFilterChain;
 
-
 @Configuration
 @EnableWebSecurity
 @AllArgsConstructor
 @Slf4j
 public class SecurityConfig {
 
-    //It will be called even though you don't use it here, so don't remove it
-    private final JwtRoleValidationFilter jwtRoleValidationFilter;
+        // It will be called even though you don't use it here, so don't remove it
+        private final JwtRoleValidationFilter jwtRoleValidationFilter;
 
-    @Bean
-    JwtDecoder jwtDecoder(OAuth2ResourceServerProperties properties) {
-        NimbusJwtDecoder decoder = NimbusJwtDecoder.withJwkSetUri(properties.getJwt().getJwkSetUri()).build();
-        decoder.setJwtValidator(new DelegatingOAuth2TokenValidator<>(
-                // Skip issuer validation or validate against multiple issuers
-                token -> OAuth2TokenValidatorResult.success(),
-                new JwtTimestampValidator()
-        ));
-        return decoder;
-    }
+        @Bean
+        JwtDecoder jwtDecoder(OAuth2ResourceServerProperties properties) {
+                NimbusJwtDecoder decoder = NimbusJwtDecoder.withJwkSetUri(properties.getJwt().getJwkSetUri()).build();
+                decoder.setJwtValidator(new DelegatingOAuth2TokenValidator<>(
+                                // Skip issuer validation or validate against multiple issuers
+                                token -> OAuth2TokenValidatorResult.success(),
+                                new JwtTimestampValidator()));
+                return decoder;
+        }
 
-    @Bean
-    public SecurityFilterChain filterChain(HttpSecurity http) throws Exception {
-        http
-                .x509(x509 -> x509
-                        .subjectPrincipalRegex("CN=(.*?)(?:,|$)")  // Extract CN from the certificate
-                        .x509PrincipalExtractor((principal -> {
-                                    String dn = principal.getSubjectX500Principal().getName();
-                                    log.info("Certificate DN: {}", dn);
-                                    String cn = dn.split(",")[0].replace("CN=", "");
-                                    log.info("Extracted CN: {}", cn);
-                                    return cn;
-                                })
-                        ))
-                .authorizeHttpRequests(authorize -> authorize
-                        .requestMatchers("/r/quotes-service/**")  // Update the path to match your actual endpoint
-                        .permitAll()
-                        .anyRequest()
-                        .authenticated()
-                )
-                .oauth2ResourceServer(oauth2-> {
-                   oauth2.jwt(Customizer.withDefaults());
-                });
+        @Bean
+        public SecurityFilterChain filterChain(HttpSecurity http) throws Exception {
+                http
+                                .x509(x509 -> x509
+                                                .subjectPrincipalRegex("CN=(.*?)(?:,|$)") // Extract CN from the
+                                                                                          // certificate
+                                                .x509PrincipalExtractor((principal -> {
+                                                        String dn = principal.getSubjectX500Principal().getName();
+                                                        log.info("Certificate DN: {}", dn);
+                                                        String cn = dn.split(",")[0].replace("CN=", "");
+                                                        log.info("Extracted CN: {}", cn);
+                                                        return cn;
+                                                })))
+                                .authorizeHttpRequests(authorize -> authorize
+                                                .requestMatchers("/health", "/actuator/health", "/r/quotes-service/**") // Update
+                                                                                                                        // the
+                                                                                                                        // path
+                                                                                                                        // to
+                                                                                                                        // match
+                                                                                                                        // your
+                                                                                                                        // actual
+                                                                                                                        // endpoint
+                                                .permitAll()
+                                                .anyRequest()
+                                                .authenticated())
+                                .oauth2ResourceServer(oauth2 -> {
+                                        oauth2.jwt(Customizer.withDefaults());
+                                });
 
-        return http.build();
-    }
+                return http.build();
+        }
 }
